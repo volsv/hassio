@@ -7,7 +7,7 @@ ENV LANG C.UTF-8
 
 ADD package.json /
 
-RUN apk add --no-cache --virtual .build-dependencies nodejs-npm make libusb-dev python3 gcc g++ git jq && \
+RUN apk add --no-cache .build-dependencies nodejs-npm make libusb-dev python3 gcc g++ git jq && \
 npm install -g node-gyp && npm install
 RUN apk del .build-dependencies make libusb-dev python3 gcc g++ git
 
