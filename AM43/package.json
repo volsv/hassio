@@ -9,6 +9,6 @@
   "author": "pixeldublu",
   "license": "ISC",
   "dependencies": {
-    "am43-ctrl": "git+https://github.com/binsentsu/am43-ctrl.git"
+    "am43-ctrl": "git+https://github.com/pixeldublu/am43-ctrl.git"
   }
 }
