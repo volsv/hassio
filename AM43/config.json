@@ -1,0 +1,31 @@
+{
+    "name": "Control AM43 Blinds",
+    "version": "1",
+    "slug": "am43",
+    "description": "Control AM43 Blinds",
+    "startup": "before",
+    "boot": "auto",
+    "host_network": true,
+    "hassio_api": true,
+    "privileged": [
+      "NET_ADMIN"
+    ],
+    "map": [
+      "share:rw"
+    ],
+    "options": {
+      "mqttHost": "mqtt://localhost",
+      "mqttUser": "user",
+      "mqttPassword": "password",
+      "macAddress1": "11:22:33:44:55:66",
+      "macAddress2": "11:22:33:44:55:66"
+
+    },
+    "schema": {
+      "mqttHost": "str",
+      "mqttUser" : "str",
+      "mqttPassword" : "str",
+      "macAddress1" : "str",
+      "macAddress2" : "str"
+    }
+  }

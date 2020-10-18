@@ -1,0 +1,14 @@
+{
+  "name": "am43",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pixeldublu",
+  "license": "ISC",
+  "dependencies": {
+    "am43-ctrl": "git+https://github.com/binsentsu/am43-ctrl.git"
+  }
+}
