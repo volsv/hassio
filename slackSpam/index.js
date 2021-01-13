@@ -1,4 +1,5 @@
 const puppeteer = require('puppeteer');
+const minimist = require('minimist');
 const fs = require('fs');
 
 const argv = minimist(process.argv);
