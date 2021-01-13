@@ -4,6 +4,9 @@ const fs = require('fs');
 
 const argv = minimist(process.argv);
 
+console.log('STARTING SLACK SPAM BOT');
+console.log(argv);
+
 const email = argv.email;
 const password = argv.password;
 
