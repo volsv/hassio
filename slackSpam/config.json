@@ -1,0 +1,35 @@
+{
+    "name": "SPAM SLACK",
+    "version": "4",
+    "slug": "slackspam",
+    "description": "SPAM SLACK",
+    "startup": "application",
+    "boot": "auto",
+    "host_network": true,
+    "hassio_api": true,
+    "arch": [
+      "amd64",
+      "armv7",
+      "aarch64"
+    ],
+    "privileged": [
+      "NET_ADMIN"
+    ],
+    "map": [
+      "share:rw"
+    ],
+    "devices": ["/dev/net/tun:/dev/net/tun:rwm"],
+    "options": {
+      "slackUrl": "https://test.slack.com/",
+      "slackEmail": "test@test.com",
+      "slackPassword": "password1234",
+      "slackChatUrl": "https://app.slack.com/client/1234/1234"
+
+    },
+    "schema": {
+      "slackUrl": "str",
+      "slackEmail" : "str",
+      "slackPassword" : "str",
+      "slackChatUrl" : "str"
+    }
+  }
