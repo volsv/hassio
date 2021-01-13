@@ -20,7 +20,7 @@ const messages = fs.readFileSync(messagesTextFileName).toString().split(/\r?\n/)
     console.log('OPNENING SLACK');
     await page.goto(argv.slackUrl);
     console.log('LOGGING IN');
-    await page.waitForSelector('#onetrust-accept-btn-handler', {timeout: 120});
+    await page.waitForSelector('#email', {timeout: 0});
     await page.focus('#email');  
     await page.keyboard.type(email);
     await page.focus('#password');  
