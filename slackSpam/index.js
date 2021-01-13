@@ -7,8 +7,8 @@ const argv = minimist(process.argv);
 console.log('STARTING SLACK SPAM BOT');
 console.log(argv);
 
-const email = argv.email;
-const password = argv.password;
+const email = argv.slackEmail;
+const password = argv.slackPassword;
 
 const messagesTextFileName = 'blahblah.txt';
 const messages = fs.readFileSync(messagesTextFileName).toString().split(/\r?\n/);
