@@ -15,9 +15,9 @@ const messages = fs.readFileSync(messagesTextFileName).toString().split(/\r?\n/)
 
 
 (async () => {
-    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox']});
+    const browser = await puppeteer.launch({headless: true, executablePath: '/usr/bin/chromium-browser', args: ['--no-sandbox']});
     const page = await browser.newPage(); 
-    console.log('OPNENING SLACK');
+    console.log('OPNENING SLACK ' + argv.slackUrl);
     await page.goto(argv.slackUrl);
     console.log('LOGGING IN');
     await page.waitForSelector('#email', {timeout: 0});
@@ -28,7 +28,7 @@ const messages = fs.readFileSync(messagesTextFileName).toString().split(/\r?\n/)
     await page.click('#signin_btn');
     await page.waitForSelector('.p-download_modal__close', {timeout: 0});
     await page.click('.p-download_modal__close');
-    console.log('OPENING PRIVATE CHAT');
+    console.log('OPENING PRIVATE CHAT ' + argv.slackChatUrl);
     await page.goto(argv.slackChatUrl);
 
     for (const message of messages) {
