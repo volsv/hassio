@@ -1,6 +1,6 @@
 {
     "name": "SPAM SLACK",
-    "version": "4",
+    "version": "5",
     "slug": "slackspam",
     "description": "SPAM SLACK",
     "startup": "application",
