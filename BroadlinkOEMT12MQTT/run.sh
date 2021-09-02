@@ -40,8 +40,5 @@ devices:
 EOL
 
 
-until true; do
-  python3 /app/ac2mqtt/monitor.py -c /config/config.yml -S -d
-  sleep 1
-done
+python3 /app/ac2mqtt/monitor.py -c /config/config.yml -S -d
 
