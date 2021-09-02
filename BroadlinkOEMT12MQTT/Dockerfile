@@ -57,6 +57,4 @@ apk add --update \
 COPY run.sh /
 RUN chmod a+x /run.sh
 
-RUN /run.sh
-
 CMD [ "/run.sh" ]
