@@ -1,5 +1,7 @@
 #!/usr/bin/with-contenv bash
 
+ echo "**** Creating CONFIG ****"
+
 MQTT_HOST="$(jq --raw-output '.mqttHost' $CONFIG_PATH)"
 MQTT_USER="$(jq --raw-output '.mqttUser' $CONFIG_PATH)"
 MQTT_PASS="$(jq --raw-output '.mqttPassword' $CONFIG_PATH)"
@@ -50,6 +52,7 @@ else
    echo "**** Already at latest version ****"
 fi
 
+cat /config/config.yml
 
 # permissions
 chown abc:abc -R \
