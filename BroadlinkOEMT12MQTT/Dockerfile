@@ -1,6 +1,10 @@
 ARG BUILD_FROM=hassioaddons/base
 FROM $BUILD_FROM
 
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
+ENV LANG C.UTF-8
+
 RUN \
  echo "**** install packages ****" && \
  apk add --no-cache --virtual=build-dependencies \
