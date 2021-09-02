@@ -1,22 +1,29 @@
-ARG BUILD_FROM=hassioaddons/base-python
+ARG BUILD_FROM=hassioaddons/base
 FROM $BUILD_FROM
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ENV LANG C.UTF-8
 
+RUN echo "@testing http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
+RUN echo "@community http://nl.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+RUN apk update
+
 RUN \
  echo "**** install packages ****" && \
- apk add --no-cache --virtual=build-dependencies \
+ apk add --no-cache \
 	g++ \
 	gcc \
 	curl \
 	make \
-	jq \
-	py3-wheel python3-dev py3-pip python3  && \
- apk add --no-cache \
-        jq && \
+	jq && \
+apk add --update \
+    python3 \
+    python3-dev \
+    py3-pip \
+    build-base && \
  echo "**** install pip packages ****" && \
+ pip install --upgrade pip \
  pip install --no-cache-dir -U \
 	paho-mqtt \
 	pyyaml \
@@ -42,8 +49,6 @@ RUN \
  echo "None" > /app/ac2mqtt/version.txt && \
  echo ${AC2MQTT_RELEASE} > /app/ac2mqtt/version.txt && \
  echo "**** cleanup ****" && \
- apk del --purge \
-	build-dependencies && \
  rm -rf \
 	/root/.cache \
 	/tmp/*
@@ -51,5 +56,7 @@ RUN \
 # Copy data for add-on
 COPY run.sh /
 RUN chmod a+x /run.sh
+
+RUN /run.sh
 
 CMD [ "/run.sh" ]
