@@ -17,7 +17,7 @@ cat > /config/config.yml << EOL
 service:
     daemon_mode: True
     update_interval: 10
-    self_discovery: True
+    self_discovery: False
     bind_to_ip: False
 
 mqtt:
@@ -39,10 +39,9 @@ devices:
   port: ${AIRCONPORT}
 EOL
 
-cat /config/config.yml
 
-until python3 /app/ac2mqtt/monitor.py -c /config/config.yml; do
-  echo Failed, retrying in 1 seconds...
+until true; do
+  python3 /app/ac2mqtt/monitor.py -c /config/config.yml
   sleep 1
 done
 
