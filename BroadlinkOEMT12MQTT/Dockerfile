@@ -13,7 +13,7 @@ RUN \
 	curl \
 	make \
 	jq \
-	python-dev && \
+	python3 && \
  apk add --no-cache \
         jq && \
  echo "**** install pip packages ****" && \
