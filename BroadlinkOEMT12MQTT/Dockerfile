@@ -1,4 +1,4 @@
-ARG BUILD_FROM=hassioaddons/base
+ARG BUILD_FROM=hassioaddons/base-python
 FROM $BUILD_FROM
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -13,7 +13,7 @@ RUN \
 	curl \
 	make \
 	jq \
-	python3 && \
+	py3-wheel python3-dev py3-pip python3  && \
  apk add --no-cache \
         jq && \
  echo "**** install pip packages ****" && \
