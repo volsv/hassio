@@ -41,4 +41,8 @@ EOL
 
 cat /config/config.yml
 
-python3 /app/ac2mqtt/monitor.py -c /config/config.yml
+until python3 /app/ac2mqtt/monitor.py -c /config/config.yml; do
+  echo Failed, retrying in 1 seconds...
+  sleep 1
+done
+
