@@ -7,9 +7,7 @@ ENV LANG C.UTF-8
 
 ADD package.json /
 
-RUN apk add --no-cache npm make libusb-dev python3 gcc g++ git jq && \
-npm install -g node-gyp && npm install
-RUN apk del make libusb-dev python3 gcc g++ git
+RUN apk add --no-cache npm make libusb-dev python3 gcc g++ git jq
 
 # Copy data for add-on
 COPY run.sh /
