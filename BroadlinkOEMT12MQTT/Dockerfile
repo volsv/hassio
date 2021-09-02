@@ -1,7 +1,5 @@
-FROM lsiobase/python:3.11
-
-# set python to use utf-8 rather than ascii
-ENV PYTHONIOENCODING="UTF-8"
+ARG BUILD_FROM=hassioaddons/base
+FROM $BUILD_FROM
 
 RUN \
  echo "**** install packages ****" && \
@@ -46,5 +44,8 @@ RUN \
 	/root/.cache \
 	/tmp/*
 
-# copy local files
-COPY root/ /
+# Copy data for add-on
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]

@@ -1,6 +1,8 @@
-#!/usr/bin/with-contenv bash
+#!/bin/bash
+set -e
 
- echo "**** Creating CONFIG ****"
+
+echo "**** Creating CONFIG ****"
 
 MQTT_HOST="$(jq --raw-output '.mqttHost' $CONFIG_PATH)"
 MQTT_USER="$(jq --raw-output '.mqttUser' $CONFIG_PATH)"
@@ -37,24 +39,5 @@ devices:
   port: ${AIRCONPORT}
 EOL
 
-# update app
-currentVersion=$(cat /app/ac2mqtt/version.txt)
-LATEST_RELEASE=$(curl -sX GET "https://api.github.com/repos/liaan/broadlink_ac_mqtt/releases/latest"  | jq -r '. | .tag_name')
 
-if [ ${LATEST_RELEASE} != ${currentVersion} ]; then
-   echo "**** Newer version found. Grabbing latest code ****"
-   curl -o /tmp/ac2mqtt.tar.gz -L "https://github.com/liaan/broadlink_ac_mqtt/archive/${LATEST_RELEASE}.tar.gz"
-   tar xf /tmp/ac2mqtt.tar.gz -C /app/ac2mqtt --strip-components=1
-   # hard code version 
-   echo "**** Updating versions ****"
-   echo ${LATEST_RELEASE} > /app/ac2mqtt/version.txt
-else
-   echo "**** Already at latest version ****"
-fi
-
-cat /config/config.yml
-
-# permissions
-chown abc:abc -R \
-	/config \
-	/app
+python /app/ac2mqtt/monitor.py -c /config/config.yml
