@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e
 
-
 echo "**** Creating CONFIG ****"
 
 MQTT_HOST="$(jq --raw-output '.mqttHost' $CONFIG_PATH)"
@@ -39,5 +38,6 @@ devices:
   port: ${AIRCONPORT}
 EOL
 
+cat /config/config.yml
 
 python3 /app/ac2mqtt/monitor.py -c /config/config.yml
