@@ -3,6 +3,7 @@ set -e
 
 echo "**** Creating CONFIG ****"
 
+CONFIG_PATH=/data/options.json
 MQTT_HOST="$(jq --raw-output '.mqttHost' $CONFIG_PATH)"
 MQTT_USER="$(jq --raw-output '.mqttUser' $CONFIG_PATH)"
 MQTT_PASS="$(jq --raw-output '.mqttPassword' $CONFIG_PATH)"
