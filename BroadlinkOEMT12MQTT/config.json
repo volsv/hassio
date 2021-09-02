@@ -19,7 +19,7 @@
       "share:rw"
     ],
     "options": {
-      "mqttHost": "mqtt://localhost",
+      "mqttHost": "localhost",
       "mqttUser": "user",
       "mqttPassword": "password",
       "airConIp": "ip",
