@@ -40,5 +40,5 @@ devices:
 EOL
 
 
-python3 /app/ac2mqtt/monitor.py -c /config/config.yml -S -d
+python3 /app/ac2mqtt/monitor.py -c /config/config.yml -d
 
