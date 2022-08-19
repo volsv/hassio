@@ -1,6 +1,6 @@
 {
     "name": "Control AM43 Blinds",
-    "version": "1",
+    "version": "2",
     "slug": "am43",
     "description": "Control AM43 Blinds",
     "startup": "before",
