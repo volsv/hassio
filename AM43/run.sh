@@ -8,4 +8,4 @@ MQTT_PASS="$(jq --raw-output '.mqttPassword' $CONFIG_PATH)"
 MAC1="$(jq --raw-output '.macAddress1' $CONFIG_PATH)"
 MAC2="$(jq --raw-output '.macAddress2' $CONFIG_PATH)"
 
-node node_modules/.bin/am43ctrl "$MAC1""$MAC2" -l 3001 -d --url "$MQTT_HOST" -u "$MQTT_USER" -p "$MQTT_PASS" -d
+node node_modules/.bin/am43ctrl devices [{@}] "$MAC1""$MAC2" -l 3001 -d --url "$MQTT_HOST" -u "$MQTT_USER" -p "$MQTT_PASS" -d
