@@ -20,11 +20,11 @@
       "share:rw"
     ],
     "options": {
-      "mqttHost": "mqtt://localhost",
-      "mqttUser": "user",
+      "mqttHost": "mqtt://192.168.1.120",
+      "mqttUser": "pi",
       "mqttPassword": "password",
-      "macAddress1": "11:22:33:44:55:66",
-      "macAddress2": "11:22:33:44:55:66"
+      "macAddress1": "02:83:a4:8e:26:68",
+      "macAddress2": "02:00:62:a7:c7:9e"
 
     },
     "schema": {
